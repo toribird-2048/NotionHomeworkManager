@@ -1,12 +1,16 @@
 name: Update Outdated and Completed Homeworks
 
+env: 
+  NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+  DATABASE_ID: ${{ secrets.DATABASE_ID }}
+
 on:
     workflow_dispatch:  # workflow_dispatch イベントを追加
       inputs:  # 入力を定義
         database_id_input:  # 入力の名前 (任意)
           description: 'Database ID (for testing)' # 入力の説明 (UIに表示される)
           required: false # 必須入力ではない (省略可能)
-          default: ${{ secrets.DATABASE_ID }} # デフォルト値 (Secrets の DATABASE_ID を使用)
+          default: DATABASE_ID # デフォルト値 (Secrets の DATABASE_ID を使用)
 
     schedule:
         - cron: '0 0 * * *'
