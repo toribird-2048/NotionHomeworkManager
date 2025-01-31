@@ -1,4 +1,4 @@
-name: Delete Outdated and Completed Homeworks
+name: Update Outdated and Completed Homeworks
 
 on:
     schedule:
@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-    delete_homework:
+    update_homework:
         runs-on: ubuntu-latest
         
         steps:
