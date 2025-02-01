@@ -1,4 +1,4 @@
-name: Update Outdated and Completed Homeworks
+name: Update Expried and Completed Homeworks
 
 env: 
   NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
