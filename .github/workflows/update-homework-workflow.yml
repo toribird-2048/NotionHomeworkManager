@@ -13,7 +13,7 @@ on:
           default: DATABASE_ID # デフォルト値 (Secrets の DATABASE_ID を使用)
 
     schedule:
-        - cron: '15 0 * * *' # UTCだから-9してJSTの0:00に合わせています。
+        - cron: '0 15 * * *' # UTCだから-9してJSTの0:00に合わせています。
 
 
 jobs:
