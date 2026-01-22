@@ -2,7 +2,7 @@ name: Update Expried and Completed Homeworks
 
 env: 
   NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-  DATABASE_ID: ${{ secrets.DATABASE_ID }}
+  DATABASE_ID: ${{ secrets.NOTION_DATA_SOURCE_ID }}
 
 on:
     workflow_dispatch:  # workflow_dispatch イベントを追加
@@ -10,7 +10,7 @@ on:
         database_id_input:  # 入力の名前 (任意)
           description: 'Database ID (for testing)' # 入力の説明 (UIに表示される)
           required: false # 必須入力ではない (省略可能)
-          default: DATABASE_ID # デフォルト値 (Secrets の DATABASE_ID を使用)
+          default: NOTION_DATA_SOURCE_ID # デフォルト値 (Secrets の DATABASE_ID を使用)
 
     schedule:
         - cron: '0 15 * * *' # UTCだから-9してJSTの0:00に合わせています。
@@ -37,6 +37,6 @@ jobs:
             - name: Run Python script
               env: 
                 NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-                DATABASE_ID: ${{ secrets.DATABASE_ID }}
+                DATABASE_ID: ${{ secrets.NOTION_DATA_SOURCE_ID }}
               run: |
-                python main.py
+                python ./src/notionhomeworkmanager/main.py

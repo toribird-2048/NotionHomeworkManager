@@ -1,13 +1,13 @@
 [project]
-name = "notionhomeworkmanager-1"
+name = "notionhomeworkmanager"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
     { name = "fly-toribird", email = "fly-toribird@outlook.jp" }
 ]
 dependencies = [
+    "dotenv>=0.9.9",
     "notion-client>=2.7.0",
-    "python-dotenv>=1.2.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -24,4 +24,4 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/notionhomeworkmanager_1"]
+packages = ["src/notionhomeworkmanager"]
