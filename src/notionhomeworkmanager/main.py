@@ -1,6 +1,6 @@
 from notion_client import Client
 import os
-from typing import Dict, Any, List, Generator
+from typing import Dict, Any, Generator
 from datetime import timezone, timedelta, datetime
 
 NOTION_API_KEY = os.environ["NOTION_API_KEY"]
