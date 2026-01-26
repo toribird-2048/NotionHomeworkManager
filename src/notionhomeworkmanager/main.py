@@ -29,12 +29,41 @@ updated_condition: Dict[str, Any] = {
         "equals": False,
     }
 }
+is_reward: Dict[str, Any] = {
+    "property" : "種類",
+    "select" : {
+        "equals": "報酬",
+    }
+}
 
-filter_condition = {
+is_homework: Dict[str, Any] = {
+    "property" : "種類",
+    "select" : {
+        "equals": "課題",
+    }
+}
+
+homework_condition = {
     "and" : [
         deadline_condition,
         completed_condition,
-        updated_condition
+        updated_condition,
+        is_homework
+    ]
+}
+
+reward_condition = {
+    "and" : [
+        completed_condition,
+        updated_condition,
+        is_reward
+    ]
+}
+
+filter_condition = {
+    "or" : [
+        homework_condition,
+        reward_condition
     ]
 }
 
