@@ -50,19 +50,21 @@ is_needed_things: Dict[str, Any] = {
     }
 }
 
-is_needed_or_homework = {
-    "or"  : [
-        is_homework,
-        is_needed_things
-    ]
-}
-
-needed_or_homework_condition = {
+homework_condition = {
     "and" : [
         deadline_condition,
         completed_condition,
         updated_condition,
-        is_needed_or_homework
+        is_homework
+    ]
+}
+
+needed_condition = {
+    "and" : [
+        deadline_condition,
+        completed_condition,
+        updated_condition,
+        is_needed_things
     ]
 }
 
@@ -76,7 +78,8 @@ reward_condition = {
 
 filter_condition = {
     "or" : [
-        needed_or_homework_condition,
+        homework_condition,
+        needed_condition,
         reward_condition
     ]
 }
